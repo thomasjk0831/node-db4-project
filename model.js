@@ -1,4 +1,4 @@
-const db = require("../data/db-config.js")
+const db = require("./data/db-config")
 
 module.exports = {
     getRecipes,
@@ -10,6 +10,6 @@ function getRecipes(){
     return db('recipes')
 }
 
-function getShoppingList(){
-    return db('ingredient_list')
+function getShoppingList(recipes_id){
+    return db('ingredient_list').where({ recipes_id})
 }
